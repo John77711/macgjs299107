@@ -1,0 +1,175 @@
+<html>
+	<head>
+		<meta charset="utf-8" /> 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.css" integrity="sha512-g/MzOGVPy3OQ4ej1U+qe4D/xhLwUn5l5xL0Fa7gdC258ZWVJQGwsbIR47SWMpRxSPjD0tfu/xkilTy+Lhrl3xg==" crossorigin="anonymous" />
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+		<link rel="stylesheet" type="text/css" href="css/extra.css">
+		<script src="js/jquery.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/fomantic-ui/2.8.7/semantic.min.js" integrity="sha512-1Nyd5H4Aad+OyvVfUOkO/jWPCrEvYIsQENdnVXt1+Jjc4NoJw28nyRdrpOCyFH4uvR3JmH/5WmfX1MJk2ZlhgQ==" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tonaljs/tonal/browser/tonal.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.60/Tone.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.1/howler.min.js" integrity="sha512-L6Z/YtIPQ7eU3BProP34WGU5yIRk7tNHk7vaC2dB1Vy1atz6wl9mCkTPPZ2Rn1qPr+vY2mZ9odZLdGYuaBk7dQ==" crossorigin="anonymous"></script>
+	</head>
+<body>
+<h1>Fingerboard</h1>
+
+<!--  A = 0 see data.js normalised notes.-->
+<div style='float:left;width:350px;'>
+	<h5>Set Key</h5>
+	<div class="ui menu inverted" id='UIKeySelector'>
+		<a class="item" data-key='8'>F</a>
+		<a class="item" data-key='1'>Bb</a>
+		<a class="item" data-key='6'>Eb</a>
+		<a class="item" data-key='11'>Ab</a>
+		<a class="item" data-key='4'>Db</a>
+		<a class="item" data-key='9'>Gb</a>
+		<a class="item last"  data-key='2'>Cb</a>
+	</div>
+	<div class="ui menu inverted" id='UIKeySelector'>
+		<a class="item"  data-key='3'>C</a>
+		<a class="item" data-key='10'>G</a>
+		<a class="item" data-key='5'>D</a>
+		<a class="active item" data-key='0'>A</a>
+		<a class="item" data-key='7'>E</a>
+		<a class="item" data-key='2'>B</a>
+		<a class="item" data-key='6'>F#</a>
+		<a class="item" data-key='4'>C#</a>
+	</div>
+	<div class="ui menu inverted" id='UIRandomKeySelector'>
+		<a class="item" data-rand='action'>Random</a>
+		<div class='item'>
+			<div class="ui menu inverted borderless">			
+				<a class="item jj" data-rand='key'>Key</a>
+				<a class="item jj" data-rand='mode'>Mode</a>
+				<a class="item jj" data-rand='position'>Position</a>
+		
+			</div>
+		</div>
+	</div>
+	<div class="ui menu inverted answerMenu" id='UIQuizModeSelector'>
+		<a class="item"  data-deg='1'>1</a>
+		<a class="item" data-deg='2'>2</a>
+		<a class="item" data-deg='3'>3</a>
+		<a class="item" data-deg='4'>4</a>
+		<a class="item" data-deg='5'>5</a>
+		<a class="item" data-deg='6'>6</a>
+		<a class="item" data-deg='7'>7</a>
+	</div>
+	<!-- Key quiz selector -->
+	<div class="ui menu inverted" id='UIQuizKeySelector'>
+		<a class="item first" data-key='8'>F</a>
+		<a class="item" data-key='1'>Bb</a>
+		<a class="item" data-key='6'>Eb</a>
+		<a class="item" data-key='11'>Ab</a>
+		<a class="item" data-key='4'>Db</a>
+		<a class="item" data-key='9'>Gb</a>
+		<a class="item"  data-key='2'>Cb</a>
+		<a class="item"  data-key='3'>C</a>
+		<a class="item" data-key='10'>G</a>
+		<a class="item" data-key='5'>D</a>
+		<a class="active item" data-key='0'>A</a>
+		<a class="item" data-key='7'>E</a>
+		<a class="item" data-key='2'>B</a>
+		<a class="item" data-key='6'>F#</a>
+		<a class="item last" data-key='4'>C#</a>
+	</div>	
+</div>
+<div class='clear'></div>
+
+
+<div style='float:left;width:200px;'>
+
+	Change scale function
+	<div class="ui  menu inverted  borderless">
+		<div class="item" style=''>
+			<div class="menu" id='UIScaleSelector'>
+				<a class="active item" data-scale='major'>Major Scale</a>
+				<a class="item" data-scale='harmonic'>Harmonic Minor</a>
+				<a class="item" data-scale='melodic'>Melodic Minor</a>
+				<a class="item" data-scale='pentatonic'>Pentatonic</a>
+			</div>
+		</div>		
+	</div>
+	
+	<h5>Set Mode and Position</h5>
+	<div class="ui  menu inverted  wide borderless">
+		<div class="item">
+			<div class="menu" id='UIModeSelector'>
+				<a class="active item" data-mode='1'>Ionian</a>
+				<a class="item" data-mode='2'>Dorian</a>
+				<a class="item" data-mode='3'>Phrygian</a>
+				<a class="item" data-mode='4'>Lydian</a>
+				<a class="item" data-mode='5'>Mixolydian</a>
+				<a class="item" data-mode='6'>Aeolian</a>
+				<a class="item" data-mode='7'>Locrean</a>
+			</div>
+		</div>
+
+		<div class="item">
+			<div class="menu" id='UIPositionSelector'>
+				<a class="active item" data-pos='1'>1</a>
+				<a class="item" data-pos='2'>2</a>
+				<a class="item" data-pos='3'>3</a>
+				<a class="item" data-pos='4'>4</a>
+				<a class="item" data-pos='5'>5</a>
+				<a class="item" data-pos='6'>6</a>
+				<a class="item" data-pos='7'>7</a>
+			</div>
+		</div>
+	</div>
+
+	Change display view options
+	<div class="ui  menu inverted  borderless">
+
+		<div class="item" style='display:none;'>
+			<div class="menu" id='UIDisplaySelector'>
+				<a class="active item" data-display="standard">Standard</a>
+				<a class="item" data-display="interval">Interval colors</a>
+				<a class="item" data-display="interval2">IntervalNames</a>
+				<a class="item" data-display="pitches">pitches</a>
+				<a class="item" data-display="relative">Relative Intervals</a>
+			</div>
+		</div>		
+	</div>
+
+	Play selection
+	<div class="ui  menu inverted  borderless">
+
+		<div class="item" style='display:none'>
+			<div class="menu" id='UIPlaySelection'>
+				<a class="active item" data-play="tonejs">PlayWithTone</a>
+				<a class="item" data-play="howler">PlayWithHowl</a>
+			</div>
+		</div>		
+	</div>
+
+	Test triads or modes.
+	<div class="ui  menu inverted  borderless">
+
+		<div class="item" style=''>
+			<div class="menu" id='UIJTestSelection'>
+				<a class="active item" data-display="triads" onclick="guitar.display='triads'">triads</a>
+				<a class="item" data-display="modes" onclick="guitar.display='standard'">modes</a>
+			</div>
+		</div>		
+	</div>
+</div>
+
+<!-- -->
+
+<div class='fingerboard' id='fb4004'>
+	<div id="fb4004header">Click here to move</div>
+</div>
+
+<script src="js/fingerboard.js"></script>
+<script src="js/draw.js"></script>
+<script src="js/maskHelper.js"></script>
+<script src="js/menuHandler.js"></script>
+<script src="js/pitchAxis.js"></script>
+<script src="js/data.js"></script>
+<script src="js/state.js"></script>
+<script src="js/keyBindings.js"></script>
+<script src="js/draggable.js"></script>
+
+</body>
+</html>

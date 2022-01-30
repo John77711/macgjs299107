@@ -1,0 +1,307 @@
+body {
+		font-family: ariel, helvetica;
+		color: white;
+		background: black;
+		box-sizing: border-box;
+		margin:2rem;
+		/* background-image: url(../assets/images/patrick-hendry-rAx4MemwFAo-unsplash.jpg); */
+		background-size: cover;
+}
+
+/**
+* For position
+*/
+.fretboard {
+	position:absolute;
+	min-height: 200px;
+	min-width: 200px;
+	border:0px solid lime;
+	margin:0 25%;
+}
+
+/**
+* For full fingerboard.
+*/
+.fingerboard {
+	position:absolute;
+	min-height: 200px;
+	min-width: 150px;
+	border:0px solid lime;
+	background-color: #000;
+	/* margin: 3rem 25%; */
+}
+
+#fb4004 {
+	position: absolute;
+	z-index: 9;
+	border: 0px solid #111;
+	text-align: center;
+	top: 50px;
+	left: 845px;
+  }
+  
+  #fb4004header {
+	padding: 10px;
+	cursor: move;
+	z-index: 10;
+	background-color: #555;
+	color: #fff;
+  }
+
+/**
+* Adds a container for notes in one fret/ row
+*/
+.fret {
+	width: 100%;
+	height: 60px;
+	border: 1px solid #000;
+}
+
+.fretsmall {
+	width: 100%;
+	height: 25px;
+	border: 1px solid #000;
+}
+
+
+.fretMarker {
+       /* position: -75px; */
+       position: absolute;
+       z-index: 9;
+       display:inline-block;
+       font-size: xx-small;
+       height:25px;
+       width:15px;
+       left:-10px;
+       margin-top: 5px;
+}
+
+.fretsmall.open {
+       border:1px solid #333;
+       border-radius: 10px;
+       background-color: #555;
+}
+	
+
+/**
+* Base classes for notes. 
+*/
+.note {
+	box-sizing: border-box;
+	display:inline-block;
+	width:25px;
+	height:25px;
+	margin:5px;
+}
+
+.note.fb {
+	width:15px;
+	height:15px;
+	margin:5px;
+	border-radius: 50%;
+	border:1px solid #333;
+}
+
+/**
+* Specific notes #00876c see data viz colours. Sequence.
+	#509874
+	#7aa981
+	#9fba92
+	#c0cba8
+	#ddddc2
+	#f6f1df
+	#ecd9b9
+	#e7bf96
+	#e3a379
+	#e08563
+	#db6456
+	#d43d51
+
+#64b183
+#8e49cb
+#68b740
+#cf5595
+#b8a441
+#5b3a75
+#d54938
+#509bb4
+#c98558
+#9289cb
+#4d622f
+#823d39
+
+// for scale degree.
+#003f5c
+#374c80
+#7a5195
+#bc5090
+#ef5675
+#ff764a
+#ffa600
+
+*/
+
+/*
+   For actual piches.
+*/
+.note.fb.n0 {
+	background-color: #00876c;
+	/* fill-opacity: 0.5; */
+}
+
+.note.fb.n1 {
+	background-color:#509874;
+}
+
+.note.fb.n2 {
+	background-color: #7aa981;
+}
+
+.note.fb.n3 {
+	background-color:#9fba92;
+}
+
+.note.fb.n4 {
+	background-color:#c0cba8;
+}
+
+.note.fb.n5 {
+	background-color:#ddddc2;
+}
+
+.note.fb.n6 {
+	background-color:#f6f1df;
+}
+
+.note.fb.n7 {
+	background-color:#ecd9b9;
+}
+
+.note.fb.n8 {
+	background-color:#e7bf96;
+}
+
+.note.fb.n9 {
+	background-color: #e3a379;
+}
+
+.note.fb.n10 {
+	background-color: #e08563;
+}
+
+.note.fb.n11 {
+	background-color: #db6456;
+}
+
+
+/* Green highlight as used by method [guitar.fb.drawPosition()] */
+.note.fb.off1 {
+	opacity: 10%;
+	background-color:#fff;
+}
+
+/* much darker off note style */
+.note.fb.off2 {
+	opacity: 10%;
+	background-color:#555;
+}
+
+
+.note.fb.on1 {
+	opacity: 100%;
+	background-color:lime;
+}
+
+.note.fb.half1 {
+	opacity: 50%;
+	background-color:yellowgreen;
+}
+
+/** not used */
+.note.fb.half2 {
+	opacity: 75%;
+	background-color:yellowgreen;
+}
+
+/**
+*  unused.
+*/
+.note.on {
+	border-radius: 50%;
+	border:1px solid tomato;
+}
+
+.note.on.root {
+	border:2px solid lime;
+}
+
+
+/*-------------------------------------------------------------------*/
+/*  Scale degree notes         */
+/*-------------------------------------------------------------------*/
+
+/*
+	#003f5c
+	#374c80
+	#7a5195
+	#bc5090
+	#ef5675
+	#ff764a
+	#ffa600 
+*/
+
+.note.fb.d1 {
+	opacity: 80%;
+	background-color:#003f5c;
+}
+
+.note.fb.d2 {
+	opacity: 80%;
+	background-color: #374c80;
+}
+
+.note.fb.d3 {
+	opacity: 80%;
+	background-color:#7a5195;
+}
+
+.note.fb.d4 {
+	opacity: 80%;
+	background-color:#ef5675;
+}
+
+.note.fb.d5 {
+	opacity: 80%;
+	background-color:#ff764a;
+}
+
+.note.fb.d6 {
+	opacity: 80%;
+	background-color:#ffa600;
+}
+
+.note.fb.d7 {
+	opacity: 80%;
+	background-color:#ecd9b9;
+}
+
+
+.note.fb.on2 {
+	opacity: 100%;
+	border:3px solid white;
+}
+
+/*-------------------------------------------------------------------*/
+
+div.clear {
+	clear:both;
+	margin:5px;
+}
+
+.red {
+	background-color: red;
+}
+
+.answerMenu {
+	border: 1px dashed blue !important;
+}

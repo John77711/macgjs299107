@@ -1,0 +1,58 @@
+
+.note.mask {
+    opacity:25% !important;
+}
+
+.note.mask-10pc {
+    opacity:10%;
+}
+
+.note.mask-20pc {
+    opacity:20%;
+}
+
+.note.mask-30pc {
+    opacity:30%;
+}
+
+.note.mask-40pc {
+    opacity:40%;
+}
+
+.note.mask-50pc {
+    opacity:50%;
+}
+
+.note.mask-60pc {
+    opacity:60%;
+}
+
+
+/**-----------[rainbow]-----------*/
+.note.r1 {
+    background: #ff0000;
+}
+
+.note.r2 {
+    background: #ffa500;
+}
+
+.note.r3 {
+    background: #ffff00;
+}
+
+.note.r4 {
+    background: #008000;
+}
+
+.note.r5 {
+    background: #0000ff;
+}
+
+.note.r6 {
+    background: #4b0082;
+}
+
+.note.r7 {
+    background: #ee82ee;
+}
